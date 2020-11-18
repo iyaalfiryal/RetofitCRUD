@@ -8,6 +8,23 @@
     tools:context=".activity.ProductActivity">
 
     <TextView
+        android:id="@+id/txt_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="id"
+        android:textSize="20sp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="16dp"/>
+
+    <EditText
+        android:id="@+id/edt_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
         android:id="@+id/txt_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
