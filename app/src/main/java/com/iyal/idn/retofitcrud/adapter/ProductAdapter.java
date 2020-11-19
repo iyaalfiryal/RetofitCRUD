@@ -18,13 +18,13 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-public class ProductAdapter extends ArrayAdapter<PersonItem> {
+public class ProductAdapter extends ArrayAdapter<ResponseProduct> {
     private Context context;
-    private List<PersonItem> personItem;
+    private List<ResponseProduct> personItem;
 
     public ProductAdapter(@NonNull Context context,
                           int resource,
-                          @NonNull List<PersonItem> objects) {
+                          @NonNull List<ResponseProduct> objects) {
         super(context, resource, objects);
         this.context = context;
         this.personItem = objects;

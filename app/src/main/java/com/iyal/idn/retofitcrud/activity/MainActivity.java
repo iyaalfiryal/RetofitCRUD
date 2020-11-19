@@ -16,6 +16,7 @@ import android.widget.ListView;
 import com.iyal.idn.retofitcrud.R;
 import com.iyal.idn.retofitcrud.adapter.ProductAdapter;
 import com.iyal.idn.retofitcrud.model.PersonItem;
+import com.iyal.idn.retofitcrud.model.ResponseProduct;
 import com.iyal.idn.retofitcrud.remote.APIUtils;
 import com.iyal.idn.retofitcrud.remote.ProductService;
 
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnGetUser;
     ListView rv;
     ProductService productService;
-    List<PersonItem> list = new ArrayList<PersonItem>();
+    List<ResponseProduct> list = new ArrayList<ResponseProduct>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,10 +64,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getUserList() {
-        Call<List<PersonItem>> call = productService.getProduct();
-        call.enqueue(new Callback<List<PersonItem>>() {
+        Call<List<ResponseProduct>> call = productService.getProduct();
+        call.enqueue(new Callback<List<ResponseProduct>>() {
             @Override
-            public void onResponse(Call<List<PersonItem>> call, Response<List<PersonItem>> response) {
+            public void onResponse(Call<List<ResponseProduct>> call, Response<List<ResponseProduct>> response) {
                 if (response.isSuccessful()){
                     list = response.body();
                     rv.setAdapter(new ProductAdapter(MainActivity.this,
@@ -75,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<PersonItem>> call, Throwable t) {
+            public void onFailure(Call<List<ResponseProduct>> call, Throwable t) {
                 Log.e("ERROR: ", t.getMessage());
             }
         });

@@ -8,7 +8,7 @@ public class APIUtils {
     }
 
     public static final String API_URL =
-            "http://localhost/marketplace/index.php/";
+            "http://192.168.100.157/marketplace/index.php/";
 
     public static ProductService getProductService(){
         return RetrofitClient.getClient(API_URL)
