@@ -1,12 +1,14 @@
 package com.iyal.idn.retofitcrud.model;
 
+import android.content.Context;
+
 import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
 public class ResponseProduct{
 
 	@SerializedName("person")
-	private List<ResponseProduct> person;
+	private List<PersonItem> person;
 
 	@SerializedName("error")
 	private boolean error;
@@ -14,66 +16,15 @@ public class ResponseProduct{
 	@SerializedName("status")
 	private int status;
 
-	@SerializedName("image")
-	private String image;
-
-	@SerializedName("price")
-	private String price;
-
-	@SerializedName("name")
-	private String name;
-
-	@SerializedName("id")
-	private String id;
-
-	@SerializedName("desc")
-	private String desc;
-
-	public void setImage(String image){
-		this.image = image;
+	public ResponseProduct() {
 	}
 
-	public String getImage(){
-		return image;
-	}
 
-	public void setPrice(String price){
-		this.price = price;
-	}
-
-	public String getPrice(){
-		return price;
-	}
-
-	public void setName(String name){
-		this.name = name;
-	}
-
-	public String getName(){
-		return name;
-	}
-
-	public void setId(String id){
-		this.id = id;
-	}
-
-	public String getId(){
-		return id;
-	}
-
-	public void setDesc(String desc){
-		this.desc = desc;
-	}
-
-	public String getDesc(){
-		return desc;
-	}
-
-	public void setPerson(List<ResponseProduct> person){
+	public void setPerson(List<PersonItem> person){
 		this.person = person;
 	}
 
-	public List<ResponseProduct> getPerson(){
+	public List<PersonItem> getPerson(){
 		return person;
 	}
 

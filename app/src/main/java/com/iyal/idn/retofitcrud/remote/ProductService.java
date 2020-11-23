@@ -15,16 +15,16 @@ import retrofit2.http.Path;
 
 public interface ProductService {
 
-    @GET("person/get")
-    Call<List<ResponseProduct>> getProduct();
+    @GET("person/get/")
+    Call<List<PersonItem>> getProduct();
 
-    @POST("person/add")
-    Call<ResponseProduct> addProduct(@Body ResponseProduct personItem);
+    @POST("person/add/")
+    Call<PersonItem> addProduct(@Body PersonItem personItem);
 
-    @PUT("person/update")
-    Call<ResponseProduct> updateProduct(@Path("id") int id,
-                                   @Body ResponseProduct personItem);
-    @DELETE("person/delete")
-    Call<ResponseProduct> deleteProduct(@Path("id") int id);
+    @PUT("person/update/")
+    Call<PersonItem> updateProduct(@Path("id") int id,
+                                   @Body PersonItem personItem);
+    @DELETE("person/delete/")
+    Call<PersonItem> deleteProduct(@Path("id") int id);
 
 }

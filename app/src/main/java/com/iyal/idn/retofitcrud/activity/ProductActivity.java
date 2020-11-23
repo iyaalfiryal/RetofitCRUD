@@ -65,10 +65,10 @@ public class ProductActivity extends AppCompatActivity {
             btnDel.setVisibility(View.INVISIBLE);
         }
 
-        btnSave.setOnClickListener(new View.OnClickListener() {
+        btnSave.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ResponseProduct p = new ResponseProduct();
+                PersonItem p = new PersonItem();
                 p.setName(edtName.getText().toString());
                 p.setPrice(edtPrice.getText().toString());
                 p.setDesc(edtDesc.getText().toString());
@@ -94,11 +94,11 @@ public class ProductActivity extends AppCompatActivity {
 
     }
 
-    public void addProduct(ResponseProduct p) {
-        Call<ResponseProduct> call = productService.addProduct(p);
-        call.enqueue(new Callback<ResponseProduct>() {
+    public void addProduct(PersonItem p) {
+        Call<PersonItem> call = productService.addProduct(p);
+        call.enqueue(new Callback<PersonItem>() {
             @Override
-            public void onResponse(Call<ResponseProduct> call, Response<ResponseProduct> response) {
+            public void onResponse(Call<PersonItem> call, Response<PersonItem> response) {
                 if (response.isSuccessful()){
                     Toast.makeText(ProductActivity.this, "product added",
                             Toast.LENGTH_SHORT).show();
@@ -107,17 +107,17 @@ public class ProductActivity extends AppCompatActivity {
                 }
             }
             @Override
-            public void onFailure(Call<ResponseProduct> call, Throwable t) {
+            public void onFailure(Call<PersonItem> call, Throwable t) {
                 Log.e("ERROR: ", t.getMessage());
             }
         });
     }
 
-    private void updateProduct(int id, ResponseProduct personItem) {
-        Call<ResponseProduct> call = productService.updateProduct(id, personItem);
-        call.enqueue(new Callback<ResponseProduct>() {
+    private void updateProduct(int id, PersonItem personItem) {
+        Call<PersonItem> call = productService.updateProduct(id, personItem);
+        call.enqueue(new Callback<PersonItem>() {
             @Override
-            public void onResponse(Call<ResponseProduct> call, Response<ResponseProduct> response) {
+            public void onResponse(Call<PersonItem> call, Response<PersonItem> response) {
                 if (response.isSuccessful()){
                     Toast.makeText(ProductActivity.this, "Product Updated", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(ProductActivity.this, MainActivity.class);
@@ -126,17 +126,17 @@ public class ProductActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<ResponseProduct> call, Throwable t) {
+            public void onFailure(Call<PersonItem> call, Throwable t) {
                 Log.e("ERROR: ", t.getMessage());
             }
         });
     }
 
     private void deleteProduct(int id){
-        Call<ResponseProduct> call = productService.deleteProduct(id);
-        call.enqueue(new Callback<ResponseProduct>() {
+        Call<PersonItem> call = productService.deleteProduct(id);
+        call.enqueue(new Callback<PersonItem>() {
             @Override
-            public void onResponse(Call<ResponseProduct> call, Response<ResponseProduct> response) {
+            public void onResponse(Call<PersonItem> call, Response<PersonItem> response) {
                 if (response.isSuccessful()){
                     Toast.makeText(ProductActivity.this, "Product deleted",
                             Toast.LENGTH_SHORT).show();
@@ -146,7 +146,7 @@ public class ProductActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<ResponseProduct> call, Throwable t) {
+            public void onFailure(Call<PersonItem> call, Throwable t) {
                 Log.e("ERROR: ", t.getMessage());
             }
         });
