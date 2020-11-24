@@ -74,7 +74,7 @@ public class ProductActivity extends AppCompatActivity {
                 String desc = edtDesc.getText().toString();
 
                 if (productID != null && productID.trim().length() > 0){
-//                    updateProduct(Integer.parseInt(productID), name, price, desc);
+                    updateProduct(Integer.parseInt(productID), name, price, desc);
                 } else {
                     addProduct(name, price, desc);
                 }
@@ -113,8 +113,8 @@ public class ProductActivity extends AppCompatActivity {
         });
     }
 
-    private void updateProduct(int id, PersonItem personItem) {
-        Call<PersonItem> call = productService.updateProduct(id, personItem);
+    private void updateProduct(int id, String name, String price, String desc) {
+        Call<PersonItem> call = productService.updateProduct(id, name, price, desc);
         call.enqueue(new Callback<PersonItem>() {
             @Override
             public void onResponse(Call<PersonItem> call, Response<PersonItem> response) {
