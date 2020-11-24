@@ -8,6 +8,8 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
@@ -18,13 +20,16 @@ public interface ProductService {
     @GET("person/get/")
     Call<List<PersonItem>> getProduct();
 
-    @POST("person/add/")
-    Call<PersonItem> addProduct(@Body PersonItem personItem);
+    @FormUrlEncoded
+    @POST("person/add")
+    Call<PersonItem> addProduct(@Field("name") String name,
+                                @Field("price") String price,
+                                @Field("desc")String desc);
 
-    @PUT("person/update/")
+    @PUT("person/update/{id}")
     Call<PersonItem> updateProduct(@Path("id") int id,
                                    @Body PersonItem personItem);
-    @DELETE("person/delete/")
+    @DELETE("person/delete/{id}")
     Call<PersonItem> deleteProduct(@Path("id") int id);
 
 }

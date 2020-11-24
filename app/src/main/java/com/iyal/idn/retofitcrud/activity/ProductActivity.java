@@ -68,15 +68,15 @@ public class ProductActivity extends AppCompatActivity {
         btnSave.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PersonItem p = new PersonItem();
-                p.setName(edtName.getText().toString());
-                p.setPrice(edtPrice.getText().toString());
-                p.setDesc(edtDesc.getText().toString());
+
+                String name = edtName.getText().toString();
+                String price = edtPrice.getText().toString();
+                String desc = edtDesc.getText().toString();
 
                 if (productID != null && productID.trim().length() > 0){
-                    updateProduct(Integer.parseInt(productID), p);
+//                    updateProduct(Integer.parseInt(productID), name, price, desc);
                 } else {
-                    addProduct(p);
+                    addProduct(name, price, desc);
                 }
             }
         });
@@ -94,13 +94,13 @@ public class ProductActivity extends AppCompatActivity {
 
     }
 
-    public void addProduct(PersonItem p) {
-        Call<PersonItem> call = productService.addProduct(p);
+    public void addProduct(String name, String price, String desc) {
+        Call<PersonItem> call = productService.addProduct(name, price, desc);
         call.enqueue(new Callback<PersonItem>() {
             @Override
             public void onResponse(Call<PersonItem> call, Response<PersonItem> response) {
                 if (response.isSuccessful()){
-                    Toast.makeText(ProductActivity.this, "product added",
+                    Toast.makeText(ProductActivity.this, "product added succesfully",
                             Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(ProductActivity.this, MainActivity.class);
                     startActivity(intent);

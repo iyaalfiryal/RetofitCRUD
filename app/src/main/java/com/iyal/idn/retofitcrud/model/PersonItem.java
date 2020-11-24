@@ -6,12 +6,15 @@ import com.google.gson.annotations.SerializedName;
 public class PersonItem{
 
 	@SerializedName("image")
+	@Expose
 	private String image;
 
 	@SerializedName("price")
+	@Expose
 	private String price;
 
 	@SerializedName("name")
+	@Expose
 	private String name;
 
 	@SerializedName("id")
@@ -19,6 +22,7 @@ public class PersonItem{
 	private int id;
 
 	@SerializedName("desc")
+	@Expose
 	private String desc;
 
 	public PersonItem(){
