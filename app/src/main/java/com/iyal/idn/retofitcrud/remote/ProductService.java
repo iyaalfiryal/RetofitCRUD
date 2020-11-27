@@ -35,7 +35,8 @@ public interface ProductService {
                                    @Field("price")String price,
                                    @Field("desc")String desc);
 
-    @DELETE("person/delete")
-    Call<PersonItem> deleteProduct(@Path("id") int id);
+    @FormUrlEncoded
+    @HTTP(method = "DELETE", path = ("person/delete/"), hasBody = true)
+    Call<PersonItem> deleteProduct(@Field("id") int id);
 
 }

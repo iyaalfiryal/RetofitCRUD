@@ -35,8 +35,8 @@ public class PersonItem{
 		this.price = price;
 		this.image = image;
 		this.desc = desc;
-
 	}
+
 	public void setImage(String image){
 		this.image = image;
 	}
